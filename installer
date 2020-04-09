@@ -1,0 +1,21 @@
+#! /usr/bin/env bash
+
+TARGET=$1
+
+if [ -f './Makefile' ]; then
+    echo "The project has already been initialized."
+    echo "Build it with:    make <target>"
+    exit 0
+else
+    echo "Checking Sphinx installation..."
+
+    if [ -z $(command -v sphinx-build) ]; then
+	echo "Sphinx is not installed!"
+	echo "Sorry, sphinx is required to proceed. Install it via pip or your package manager of choice."
+	exit 1
+    fi
+
+    sphinx-quickstart
+fi
+
+exit 0
