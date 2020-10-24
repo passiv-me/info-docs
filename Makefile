@@ -7,25 +7,30 @@ SPHINXBUILD   = sphinx-build
 SOURCEDIR     = source
 BUILDDIR      = build
 
-# Put it first so that "make" without argument is like "make help".
-help:
-	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+.PHONY: help Makefile
 
-.PHONY: docs help Makefile
-
-docs:
+docs: ./.venv/bin/activate
 	$(MAKE) html
 	cp -a ./build/html/. ./docs
 
-# Catch-all target: route all unknown targets to Sphinx using the new
-# "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
-%: Makefile
+venv: ./.venv/bin/activate
+./.venv/bin/activate: requirements.txt
+	@virtualenv .venv
+	@. .venv/bin/activate
+	@pip install --upgrade pip
+	@pip install -r requirements.txt
+
+html: ./.venv/bin/activate
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-
-TMP_FILES = $(shell find ./*~ 2>/dev/null)
-
 clean:
-	@echo "Cleaning backup files:" $(TMP_FILES)
-	@rm -f $(TMP_FILES)
+	@echo "Cleaning project files..."
+	@rm -rf build
+	@rm -rf .venv
 	@echo "Done."
+
+# Put it first so that "make" without argument is like "make help".
+help: ./.venv/bin/activate
+	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+
+Makefile: ;
