@@ -19,7 +19,7 @@
 import datetime
 
 project = 'InfoDocs'
-copyright = '2019-{}, Sivam ABC Pasupathipillai'.format(datetime.datetime.utcnow().date().year)
+copyright = '2019-{}, Sivam Pasupathipillai'.format(datetime.datetime.utcnow().date().year)
 author = 'Sivam Pasupathipillai'
 
 # The full version, including alpha/beta/rc tags

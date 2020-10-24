@@ -20,7 +20,7 @@ venv: ./.venv/bin/activate
 	@pip install --upgrade pip
 	@pip install -r requirements.txt
 
-html: ./.venv/bin/activate
+qhtml: ./.venv/bin/activate
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 clean:
