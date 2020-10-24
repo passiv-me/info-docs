@@ -16,14 +16,14 @@
 
 
 # -- Project information -----------------------------------------------------
+import datetime
 
 project = 'InfoDocs'
-copyright = '2019, Sivam Pasupathipillai'
+copyright = '2019-{}, Sivam Pasupathipillai'.format(datetime.datetime.utcnow().date().year)
 author = 'Sivam Pasupathipillai'
 
 # The full version, including alpha/beta/rc tags
 release = '0.1.0'
-
 
 # -- General configuration ---------------------------------------------------
 
