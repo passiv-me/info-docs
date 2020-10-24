@@ -9,7 +9,7 @@ BUILDDIR      = build
 
 .PHONY: help Makefile
 
-docs: ./.venv/bin/activate
+docs: ./.venv/bin/activate $(SOURCEDIR)/*
 	$(MAKE) html
 	cp -a ./build/html/. ./docs
 
@@ -20,7 +20,7 @@ venv: ./.venv/bin/activate
 	@pip install --upgrade pip
 	@pip install -r requirements.txt
 
-qhtml: ./.venv/bin/activate
+html: ./.venv/bin/activate
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 clean:

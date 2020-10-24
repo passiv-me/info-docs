@@ -79,10 +79,10 @@ Riassumendo:
    :maxdepth: 2
    :caption: Contents:
 
+   computer
 
 Indici e tabelle
 ================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
