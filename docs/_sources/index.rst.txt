@@ -39,7 +39,7 @@ scopriremo "cos'è un computer?".
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Definizioni:
 
    computer
    file
